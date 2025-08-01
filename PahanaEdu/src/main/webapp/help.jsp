@@ -1,4 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+    HttpSession sessionObj = request.getSession(false);
+
+    // Redirect to login page if session is invalid or admin is not logged in
+    if (sessionObj == null || sessionObj.getAttribute("loggedInAdmin") == null) {
+        response.sendRedirect("adminlogin.jsp");
+        return;
+    }
+
+    // Retrieve admin details
+    String adminName = (String) sessionObj.getAttribute("loggedInAdmin");
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +25,7 @@
         <ul>
             <li><a href="adminhome.jsp"><i class="fas fa-chart-line"></i> Dashboard</a></li>
             <li><a href="managecustomers.jsp"><i class="fas fa-users"></i> Manage Customers</a></li>
-            <li><a href="manageitems.jsp"><i class="fas fa-box"></i> Manage Items</a></li>
+            <li><a href="manageitem.jsp"><i class="fas fa-box"></i> Manage Items</a></li>
             <li><a href="manageorders.jsp"><i class="fas fa-receipt"></i> Manage Orders</a></li>
             <li><a href="help.jsp" class="active"><i class="fas fa-question-circle"></i> Help</a></li>
             <li><a href="adminlogout.jsp"><i class="fas fa-sign-out-alt"></i> Logout</a></li>

@@ -1,5 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%
+    HttpSession sessionObj = request.getSession(false);
+
+    // Redirect to login page if session is invalid or admin is not logged in
+    if (sessionObj == null || sessionObj.getAttribute("loggedInAdmin") == null) {
+        response.sendRedirect("adminlogin.jsp");
+        return;
+    }
+
+    // Retrieve admin details
+    String adminName = (String) sessionObj.getAttribute("loggedInAdmin");
+%>
 
 <!DOCTYPE html>
 <html lang="en">
