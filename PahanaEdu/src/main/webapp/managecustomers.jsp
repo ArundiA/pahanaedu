@@ -30,7 +30,7 @@
         <ul>
             <li><a href="adminhome.jsp"><i class="fas fa-chart-line"></i> Dashboard</a></li>
             <li><a href="manageusers.jsp" class="active"><i class="fas fa-users"></i> Manage Users</a></li>
-            <li><a href="manageitem.jsp"><i class="fa-solid fa-car"></i> Manage Vehicals</a></li>
+            <li><a href="manageitem.jsp"><i class="fa-solid fa-car"></i> ManageItems</a></li>
             <li><a href="adminviewbooking.jsp"><i class="fas fa-book"></i> All Bookings</a></li>
             <li><a href="adminlogout.jsp"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
         </ul>
