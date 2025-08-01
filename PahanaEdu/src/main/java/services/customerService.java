@@ -82,7 +82,7 @@ public class customerService {
             stmt.setString(2, cus.getC_address());
             stmt.setString(3, cus.getC_phone());
             stmt.setString(4, cus.getC_email());
-            stmt.setInt(6, cus.getC_id());
+            stmt.setInt(5, cus.getC_id());  // ✅ Fixed from 6 to 5
 
             int rows = stmt.executeUpdate();
             if (rows > 0) {
@@ -96,6 +96,36 @@ public class customerService {
             System.out.println("❌ Error updating customer: " + e.getMessage());
         }
     }
+
+    
+    
+    public customer getCustomerById(int cid) {
+        customer cus = null;
+        String query = "SELECT * FROM customer WHERE c_id = ?";
+
+        try (Connection conn = DBConnect.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+
+            stmt.setInt(1, cid);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                cus = new customer();
+                cus.setC_id(rs.getInt("c_id"));
+                cus.setC_name(rs.getString("c_name"));
+                cus.setC_address(rs.getString("c_address"));
+                cus.setC_phone(rs.getString("c_phone"));
+                cus.setC_email(rs.getString("c_email"));
+                cus.setC_unit(rs.getInt("c_unit"));
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return cus;
+    }
+
 
 
 }

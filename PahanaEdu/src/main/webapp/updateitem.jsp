@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="java.util.*, java.sql.*" %>
 <%@ page import="java.util.Base64" %>
 <%@ page import="model.item" %>
 
@@ -15,43 +14,43 @@
 <body>
 
 <div class="form-container">
-    <!-- Left: Image -->
+    <!-- Left: Image Preview -->
     <div class="form-image">
         <%
             item itemData = (item) request.getAttribute("item");
             byte[] imageBytes = (itemData != null) ? itemData.getI_image() : null;
             String base64Image = (imageBytes != null) ? Base64.getEncoder().encodeToString(imageBytes) : null;
-            String imageSrc = (base64Image != null) ? "data:image/jpeg;base64," + base64Image : "image/default_item.jpg";
+            String imageSrc = (base64Image != null) ? "data:image/jpeg;base64," + base64Image : "images/default_item.jpg";
         %>
         <img id="itemPreview" src="<%= imageSrc %>" alt="Item Image">
     </div>
 
-    <!-- Right: Form -->
+    <!-- Right: Update Form -->
     <div class="form-content">
         <h2><i class="fas fa-box"></i> Update Item</h2>
         <br>
 
         <form method="post" action="updateItem" enctype="multipart/form-data">
-            <input type="hidden" name="i_id" value="<%= itemData.getI_id() %>">
+            <input type="hidden" name="i_id" value="<%= (itemData != null) ? itemData.getI_id() : "" %>">
 
             <div class="input-group">
                 <label for="iname"><i class="fas fa-tag"></i> Item Name</label>
-                <input type="text" name="iname" id="iname" value="<%= itemData.getI_name() %>" required>
+                <input type="text" name="iname" id="iname" value="<%= (itemData != null) ? itemData.getI_name() : "" %>" required>
             </div>
 
             <div class="input-group">
                 <label for="itype"><i class="fas fa-cubes"></i> Item Type</label>
-                <input type="text" name="itype" id="itype" value="<%= itemData.getI_type() %>" required>
+                <input type="text" name="itype" id="itype" value="<%= (itemData != null) ? itemData.getI_type() : "" %>" required>
             </div>
 
             <div class="input-group">
                 <label for="iqty"><i class="fas fa-sort-numeric-up"></i> Quantity</label>
-                <input type="number" name="iqty" id="iqty" value="<%= itemData.getI_qty() %>" required>
+                <input type="number" name="iqty" id="iqty" value="<%= (itemData != null) ? itemData.getI_qty() : "" %>" required>
             </div>
 
             <div class="input-group">
                 <label for="iprice"><i class="fas fa-dollar-sign"></i> Price</label>
-                <input type="text" name="iprice" id="iprice" value="<%= itemData.getI_price() %>" required>
+                <input type="text" name="iprice" id="iprice" value="<%= (itemData != null) ? itemData.getI_price() : "" %>" required>
             </div>
 
             <div class="input-group">
@@ -65,6 +64,7 @@
     </div>
 </div>
 
+<!-- Image Preview Script -->
 <script>
     function previewImage(event) {
         const file = event.target.files[0];

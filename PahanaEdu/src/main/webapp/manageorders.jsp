@@ -23,12 +23,13 @@
 <body>
 
     <div class="sidebar">
-        <h2 class="logo"><i class="fas fa-user-shield"></i> Admin Panel</h2>
+        <h2 class="logo"><i class="fas fa-book-open"></i> Pahana Edu</h2>
         <ul>
             <li><a href="adminhome.jsp"><i class="fas fa-chart-line"></i> Dashboard</a></li>
             <li><a href="managecustomers.jsp"><i class="fas fa-users"></i> Manage Customers</a></li>
             <li><a href="manageitem.jsp"><i class="fa-solid fa-boxes-stacked"></i> Manage Items</a></li>
             <li><a href="manageorders.jsp" class="active"><i class="fas fa-receipt"></i> Manage Orders</a></li>
+            <li><a href="help.jsp" ><i class="fas fa-question-circle"></i> Help</a></li>
             <li><a href="adminlogout.jsp"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
         </ul>
     </div>
@@ -43,14 +44,15 @@
             <div class="header-row">
                 <h3>All Orders</h3>
                 <div style="display: flex; gap: 10px;">
-                    <form action="manageOrders" method="post">
-                        <button type="submit" class="view-bookings-btn"><i class="fas fa-eye"></i> View Orders</button>
-                    </form>
-                    <form action="addOrders" method="post">
+                	<form action="addOrders" method="post">
                         <button type="submit" class="view-bookings-btn" style="background-color: #28a745;">
                             <i class="fas fa-plus"></i> Add Order
                         </button>
                     </form>
+                    <form action="manageOrders" method="post">
+                        <button type="submit" class="view-bookings-btn"><i class="fas fa-eye"></i> View Orders</button>
+                    </form>
+                    
                 </div>
             </div>
 

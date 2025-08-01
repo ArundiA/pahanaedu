@@ -55,7 +55,7 @@ public class updateItem extends HttpServlet {
         boolean success = itmService.updateItem(itm);
 
         if (success) {
-            response.sendRedirect("manageitems.jsp");
+            response.sendRedirect("manageitem.jsp");
         } else {
             request.setAttribute("errorMessage", "Failed to update item.");
             RequestDispatcher dispatcher = request.getRequestDispatcher("updateitem.jsp");

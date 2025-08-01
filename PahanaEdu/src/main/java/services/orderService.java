@@ -12,7 +12,8 @@ public class orderService {
 
 	public boolean addOrder(order ord) {
 	    String insertOrder = "INSERT INTO `order` (c_name, c_email, i_name, i_qty, i_price, o_total) VALUES (?, ?, ?, ?, ?, ?)";
-	    String updateUnit = "UPDATE customer SET c_unit = c_unit + 1 WHERE c_email = ?";
+	    String updateCustomerUnit = "UPDATE customer SET c_unit = c_unit + 1 WHERE c_email = ?";
+	    String updateItemQty = "UPDATE item SET i_qty = i_qty - 1 WHERE i_name = ? AND i_qty > 0";
 
 	    try (Connection conn = DBConnect.getConnection()) {
 
@@ -29,9 +30,15 @@ public class orderService {
 	        }
 
 	        // Increment customer's unit by 1
-	        try (PreparedStatement updateStmt = conn.prepareStatement(updateUnit)) {
-	            updateStmt.setString(1, ord.getC_email());
-	            updateStmt.executeUpdate();
+	        try (PreparedStatement custStmt = conn.prepareStatement(updateCustomerUnit)) {
+	            custStmt.setString(1, ord.getC_email());
+	            custStmt.executeUpdate();
+	        }
+
+	        // Decrease item stock by 1
+	        try (PreparedStatement itemStmt = conn.prepareStatement(updateItemQty)) {
+	            itemStmt.setString(1, ord.getI_name());
+	            itemStmt.executeUpdate();
 	        }
 
 	        return true;
@@ -41,6 +48,7 @@ public class orderService {
 	        return false;
 	    }
 	}
+
 
 
 	public ArrayList<order> getAllOrders() {

@@ -13,9 +13,10 @@
 
     <div class="form-container">
         <!-- Left Side Image -->
-        <div class="form-image">
-            <img src="image/additem.png" alt="Add Item">
-        </div>
+		<div class="form-image">
+		    <img id="itemPreview" src="image/additem.png" alt="Add Item">
+		</div>
+
 
         <!-- Right Side Form -->
         <div class="form-content">
@@ -45,9 +46,10 @@
                 </div>
 
                 <div class="input-group">
-                    <label for="iimage"><i class="fas fa-image"></i> Item Image</label>
-                    <input type="file" name="iimage" id="iimage" accept="image/*" required>
-                </div>
+				    <label for="iimage"><i class="fas fa-image"></i> Item Image</label>
+				    <input type="file" name="iimage" id="iimage" accept="image/*" required onchange="previewImage(event)">
+				</div>
+
 
                 <br>
 
@@ -57,4 +59,18 @@
     </div>
 
 </body>
+<script>
+function previewImage(event) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function () {
+            document.getElementById('itemPreview').src = reader.result;
+        };
+        reader.readAsDataURL(file);
+    }
+}
+</script>
+
 </html>
+

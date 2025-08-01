@@ -26,12 +26,13 @@
 <body>
 
     <div class="sidebar">
-        <h2 class="logo"><i class="fas fa-user-shield"></i> Admin Panel</h2>
+        <h2 class="logo"><i class="fas fa-book-open"></i> Pahana Edu</h2>
         <ul>
             <li><a href="adminhome.jsp"><i class="fas fa-chart-line"></i> Dashboard</a></li>
             <li><a href="managecustomers.jsp" class="active"><i class="fas fa-users"></i> Manage Customers</a></li>
             <li><a href="manageitem.jsp"><i class="fa-solid fa-boxes-stacked"></i> Manage Items</a></li>
             <li><a href="manageorders.jsp"><i class="fas fa-receipt"></i> Manage Orders</a></li>
+            <li><a href="help.jsp" ><i class="fas fa-question-circle"></i> Help</a></li>
             <li><a href="adminlogout.jsp"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
         </ul>
     </div>
@@ -45,7 +46,7 @@
             <h3>Customer Management</h3>
             <div style="display: flex; gap: 10px;">
                 <form action="addcustomers.jsp" method="get">
-                    <button type="submit" class="add-user-btn"><i class="fas fa-user-plus"></i> Add Customer</button>
+                    <button type="submit" class="add-user-btn"style="background-color: #28a745;"><i class="fas fa-user-plus" ></i> Add Customer</button>
                 </form>
                 <form action="manageCustomers" method="post">
                     <button type="submit" class="add-user-btn"><i class="fas fa-eye"></i> View All</button>
@@ -82,7 +83,7 @@
 									    <button type="submit" class="delete-btn"><i class="fas fa-trash"></i> Delete</button>
 									</form>
 
-                                    <form action="updateCustomers.jsp" method="get" style="display:inline;">
+                                    <form action="editCustomer" method="get" style="display:inline;">
                                         <input type="hidden" name="cid" value="${cus.c_id}">
                                         <button type="submit" class="edit-btn"><i class="fas fa-edit"></i> Update</button>
                                     </form>
@@ -92,9 +93,7 @@
                             </tr>
                         </c:forEach>
                     </c:when>
-                    <c:otherwise>
-                        <tr><td colspan="7">No customers found.</td></tr>
-                    </c:otherwise>
+                    
                 </c:choose>
             </tbody>
         </table>
