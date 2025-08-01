@@ -18,9 +18,9 @@
         <h2 class="logo"><i class="fas fa-user-shield"></i> Admin Panel</h2>
         <ul>
             <li><a href="adminhome.jsp"><i class="fas fa-chart-line"></i> Dashboard</a></li>
-            <li><a href="manageusers.jsp"><i class="fas fa-users"></i> Manage Users</a></li>
+            <li><a href="managecustomers.jsp"><i class="fas fa-users"></i> Manage Customers</a></li>
             <li><a href="manageitems.jsp" class="active"><i class="fa-solid fa-boxes-stacked"></i> Manage Items</a></li>
-            <li><a href="adminviewbooking.jsp"><i class="fas fa-book"></i> All Bookings</a></li>
+            <li><a href="manageorders.jsp"><i class="fas fa-receipt"></i> Manage Orders</a></li>
             <li><a href="adminlogout.jsp"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
         </ul>
     </div>
