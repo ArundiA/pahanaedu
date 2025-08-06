@@ -28,7 +28,7 @@
           </div>
         </div>
 
-        <div class="pass"><a href="#">Forgot password?</a></div>
+        
         <!-- Submit button -->
         <div class="button">
           <input type="submit" value="Login">
