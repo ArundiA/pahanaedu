@@ -11,7 +11,7 @@
 <body>
   <div class="container">
     <!-- Title section -->
-    <div class="title">Admin Login</div>
+    <div class="title">Pahana Edu Login</div>
     
     <div class="content">
       <form action="adminlogin" method="post">
