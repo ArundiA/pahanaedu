@@ -54,7 +54,7 @@
     <!-- Features Section -->
     <section class="section features" id="features">
         <div class="container">
-            <h2 class="section-title">Why Choose Pahana Edu</h2>
+            <h2 class="section-title">Why Choose Pahana Edu </h2>
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">
